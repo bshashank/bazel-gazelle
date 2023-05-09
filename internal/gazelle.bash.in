@@ -31,6 +31,7 @@ set -euo pipefail
 
 RUNNER_LABEL=@@RUNNER_LABEL@@
 GAZELLE_LABEL=@@GAZELLE_LABEL@@
+GAZELLE_PATH=@@GAZELLE_PATH@@
 ARGS=@@ARGS@@
 GOTOOL=@@GOTOOL@@
 REPO_CONFIG_SHORT_PATH=@@REPO_CONFIG_SHORT_PATH@@
@@ -68,7 +69,7 @@ fi
 # able to find runfiles, and some extensions rely on that. Gazelle can use
 # BUILD_WORKSPACE_DIRECTORY to interpret relative paths on the command line.
 set_goroot
-gazelle_short_path=$(rlocation "$GAZELLE_LABEL")
+gazelle_short_path=$(rlocation "$GAZELLE_PATH")
 if [ -z "$gazelle_short_path" ]; then
   echo "error: could not locate gazelle binary" >&2
   exit 1
